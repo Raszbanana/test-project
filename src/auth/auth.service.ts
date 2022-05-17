@@ -13,7 +13,9 @@ export class AuthService {
               email: 'test@mail.com',
               hash,
             },
+
           })
+          delete user.hash;
 
         return user;
     }
