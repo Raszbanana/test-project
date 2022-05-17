@@ -7,13 +7,7 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post('signup')
-  signup(@Body('email') email: string, @Body('password') password: string) {
-    console.log({
-        email,
-        typeOfEmail: typeof email,
-        password,
-        typeOfPassword: typeof password
-     });
+  signup(@Body() dto: AuthDto) {
     return this.authService.signup();
   }
 
