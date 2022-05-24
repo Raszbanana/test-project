@@ -21,17 +21,11 @@ describe('App e2e', () => {
 
   describe('Auth', () => {
     describe('Signup', () => {
-      test('Should signup a user', async () => {
-        const user = {
-          email: 'user@example.com',
-          password: 'password'
-        }
-        await request(app)
-          .post('http://localhost:3333/signup')
-          .send(user)
-          .then(async (response) => {
-            console.log('test')
-          })
+      it('Should return a 201', () => {
+        request(app).post('http://localhost:3333/signup')
+        .then((response) => {
+          expect(response.statusCode).toBe(200)
+        })
       })
     })
 
